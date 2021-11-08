@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F296B3D6459AA523245BB2B /* Pods_Kahoot__.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7519D44539AAB25C3518EC1 /* Pods_Kahoot__.framework */; };
+		749CB4432739CABF00CF0D4E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 749CB4422739CABF00CF0D4E /* GoogleService-Info.plist */; };
 		74F0BB242739C3A100299D5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F0BB232739C3A100299D5B /* AppDelegate.swift */; };
 		74F0BB262739C3A100299D5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F0BB252739C3A100299D5B /* SceneDelegate.swift */; };
 		74F0BB282739C3A100299D5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F0BB272739C3A100299D5B /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		749CB4422739CABF00CF0D4E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74F0BB202739C3A100299D5B /* Kahoot++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kahoot++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F0BB232739C3A100299D5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74F0BB252739C3A100299D5B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				74F0BB2C2739C3A400299D5B /* Assets.xcassets */,
 				74F0BB2E2739C3A400299D5B /* LaunchScreen.storyboard */,
 				74F0BB312739C3A400299D5B /* Info.plist */,
+				749CB4422739CABF00CF0D4E /* GoogleService-Info.plist */,
 			);
 			path = "Kahoot++";
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			files = (
 				74F0BB302739C3A400299D5B /* LaunchScreen.storyboard in Resources */,
 				74F0BB2D2739C3A400299D5B /* Assets.xcassets in Resources */,
+				749CB4432739CABF00CF0D4E /* GoogleService-Info.plist in Resources */,
 				74F0BB2B2739C3A100299D5B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
