@@ -11,7 +11,7 @@
 		749CB4432739CABF00CF0D4E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 749CB4422739CABF00CF0D4E /* GoogleService-Info.plist */; };
 		74F0BB242739C3A100299D5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F0BB232739C3A100299D5B /* AppDelegate.swift */; };
 		74F0BB262739C3A100299D5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F0BB252739C3A100299D5B /* SceneDelegate.swift */; };
-		74F0BB282739C3A100299D5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F0BB272739C3A100299D5B /* ViewController.swift */; };
+		74F0BB282739C3A100299D5B /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F0BB272739C3A100299D5B /* LogInVC.swift */; };
 		74F0BB2B2739C3A100299D5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74F0BB292739C3A100299D5B /* Main.storyboard */; };
 		74F0BB2D2739C3A400299D5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74F0BB2C2739C3A400299D5B /* Assets.xcassets */; };
 		74F0BB302739C3A400299D5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74F0BB2E2739C3A400299D5B /* LaunchScreen.storyboard */; };
@@ -19,10 +19,11 @@
 
 /* Begin PBXFileReference section */
 		749CB4422739CABF00CF0D4E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		749F046A273B107400E88C65 /* Kahoot++.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Kahoot++.entitlements"; sourceTree = "<group>"; };
 		74F0BB202739C3A100299D5B /* Kahoot++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kahoot++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F0BB232739C3A100299D5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74F0BB252739C3A100299D5B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		74F0BB272739C3A100299D5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		74F0BB272739C3A100299D5B /* LogInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 		74F0BB2A2739C3A100299D5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		74F0BB2C2739C3A400299D5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74F0BB2F2739C3A400299D5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -82,9 +83,10 @@
 		74F0BB222739C3A100299D5B /* Kahoot++ */ = {
 			isa = PBXGroup;
 			children = (
+				749F046A273B107400E88C65 /* Kahoot++.entitlements */,
 				74F0BB232739C3A100299D5B /* AppDelegate.swift */,
 				74F0BB252739C3A100299D5B /* SceneDelegate.swift */,
-				74F0BB272739C3A100299D5B /* ViewController.swift */,
+				74F0BB272739C3A100299D5B /* LogInVC.swift */,
 				74F0BB292739C3A100299D5B /* Main.storyboard */,
 				74F0BB2C2739C3A400299D5B /* Assets.xcassets */,
 				74F0BB2E2739C3A400299D5B /* LaunchScreen.storyboard */,
@@ -210,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74F0BB282739C3A100299D5B /* ViewController.swift in Sources */,
+				74F0BB282739C3A100299D5B /* LogInVC.swift in Sources */,
 				74F0BB242739C3A100299D5B /* AppDelegate.swift in Sources */,
 				74F0BB262739C3A100299D5B /* SceneDelegate.swift in Sources */,
 			);
@@ -360,6 +362,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Kahoot++/Kahoot++.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5E845TX3E6;
@@ -390,6 +393,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Kahoot++/Kahoot++.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5E845TX3E6;

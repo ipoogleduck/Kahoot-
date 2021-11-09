@@ -11,6 +11,7 @@ pod 'Firebase/Analytics'
 # https://firebase.google.com/docs/ios/setup#available-pods
 pod 'Firebase/Firestore'
 pod 'Firebase/Functions'
+pod 'Firebase/Auth'
 pod 'JGProgressHUD'
 pod 'ALRT'
 
