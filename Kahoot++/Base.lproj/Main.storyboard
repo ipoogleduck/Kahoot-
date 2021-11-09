@@ -113,7 +113,7 @@
                         <outlet property="SIWALogo" destination="rkL-gb-QB6" id="Mgi-Uo-ZHA"/>
                         <outlet property="mainTitle" destination="t2V-YJ-6Of" id="kLG-rS-6PQ"/>
                         <outlet property="segmentedControl" destination="noF-T5-BIg" id="XCW-zL-5bB"/>
-                        <segue destination="HoO-tg-Zbn" kind="presentation" modalPresentationStyle="fullScreen" id="bgE-7z-ydy"/>
+                        <segue destination="HoO-tg-Zbn" kind="presentation" identifier="signInToMainSegue" modalPresentationStyle="fullScreen" id="bgE-7z-ydy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -140,21 +140,21 @@
         <!--Select a Course-->
         <scene sceneID="5EN-bg-4DZ">
             <objects>
-                <tableViewController id="gQW-3Q-60g" sceneMemberID="viewController">
+                <tableViewController id="gQW-3Q-60g" customClass="CoursesTVC" customModule="Kahoot__" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" estimatedRowHeight="76" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="UG4-qE-HMS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="76" id="nXS-Vp-UTQ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CourseCell" rowHeight="76" id="nXS-Vp-UTQ" customClass="CourseCell" customModule="Kahoot__" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nXS-Vp-UTQ" id="WzB-tg-2nE">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="76"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RCi-TX-kU2">
-                                            <rect key="frame" x="20" y="11" width="374" height="32.5"/>
+                                            <rect key="frame" x="20" y="11" width="356.5" height="32.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -168,12 +168,16 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="RCi-TX-kU2" secondAttribute="trailing" id="7lq-gf-Xx9"/>
-                                        <constraint firstItem="4ca-x1-9LN" firstAttribute="leading" secondItem="WzB-tg-2nE" secondAttribute="leading" constant="20" symbolic="YES" id="Ndf-4f-mEQ"/>
+                                        <constraint firstItem="4ca-x1-9LN" firstAttribute="leading" secondItem="WzB-tg-2nE" secondAttribute="leadingMargin" id="MZe-4V-sWb"/>
                                         <constraint firstItem="RCi-TX-kU2" firstAttribute="top" secondItem="WzB-tg-2nE" secondAttribute="topMargin" id="eic-EF-DkT"/>
                                         <constraint firstItem="4ca-x1-9LN" firstAttribute="top" secondItem="RCi-TX-kU2" secondAttribute="bottom" constant="1" id="eqf-yj-7jf"/>
-                                        <constraint firstItem="RCi-TX-kU2" firstAttribute="leading" secondItem="WzB-tg-2nE" secondAttribute="leadingMargin" id="n0T-gu-nBX"/>
+                                        <constraint firstItem="RCi-TX-kU2" firstAttribute="leading" secondItem="WzB-tg-2nE" secondAttribute="leadingMargin" id="ybh-TS-k0S"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="subTitleLabel" destination="4ca-x1-9LN" id="wQy-Yl-Px4"/>
+                                    <outlet property="titleLabel" destination="RCi-TX-kU2" id="zT9-Nl-G0U"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -182,10 +186,127 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Select a Course" id="Dxu-5d-jT5"/>
+                    <connections>
+                        <segue destination="PjR-bs-V3d" kind="show" identifier="materialSegue" id="zda-c4-HUI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CD1-IW-IlF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1586" y="84"/>
+            <point key="canvasLocation" x="1585.5072463768117" y="83.705357142857139"/>
+        </scene>
+        <!--Course Title-->
+        <scene sceneID="kc3-dg-SIt">
+            <objects>
+                <tableViewController id="PjR-bs-V3d" customClass="SubjectTVC" customModule="Kahoot__" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" estimatedRowHeight="45" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="lW6-pI-U17">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SubjectCell" rowHeight="45" id="azf-js-8nk" customClass="SubjectCell" customModule="Kahoot__" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="45"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="azf-js-8nk" id="wNG-IH-W7w">
+                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="45"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sfe-Fx-y0D">
+                                            <rect key="frame" x="61" y="11" width="315.5" height="23"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lny-DB-0P7">
+                                            <rect key="frame" x="20" y="7.5" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="Iwo-Q7-V5z"/>
+                                                <constraint firstAttribute="width" secondItem="lny-DB-0P7" secondAttribute="height" multiplier="1:1" id="wH1-hT-mO9"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="sfe-Fx-y0D" secondAttribute="bottom" id="4Wj-sU-7G7"/>
+                                        <constraint firstItem="sfe-Fx-y0D" firstAttribute="leading" secondItem="lny-DB-0P7" secondAttribute="trailing" constant="11" id="FeQ-yW-agn"/>
+                                        <constraint firstItem="sfe-Fx-y0D" firstAttribute="top" secondItem="wNG-IH-W7w" secondAttribute="topMargin" id="YKp-Yh-keN"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="sfe-Fx-y0D" secondAttribute="trailing" id="nfH-Kd-rgZ"/>
+                                        <constraint firstItem="lny-DB-0P7" firstAttribute="centerY" secondItem="wNG-IH-W7w" secondAttribute="centerY" id="oc0-x7-bWd"/>
+                                        <constraint firstItem="lny-DB-0P7" firstAttribute="leading" secondItem="wNG-IH-W7w" secondAttribute="leading" constant="20" symbolic="YES" id="zNW-DZ-q3e"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mainImage" destination="lny-DB-0P7" id="KWd-Xc-ld9"/>
+                                    <outlet property="titleLabel" destination="sfe-Fx-y0D" id="rAY-Rk-1Yz"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PjR-bs-V3d" id="MOU-5Y-oKJ"/>
+                            <outlet property="delegate" destination="PjR-bs-V3d" id="T8w-Sk-UxF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Course Title" id="Bq2-2a-DfS"/>
+                    <connections>
+                        <segue destination="1ze-A1-Gep" kind="show" identifier="scoreboardSegue" id="tdD-V1-Be4"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="syx-7G-GpU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2344.9275362318845" y="83.705357142857139"/>
+        </scene>
+        <!--Scoreboard-->
+        <scene sceneID="7Nj-NM-ptW">
+            <objects>
+                <tableViewController id="1ze-A1-Gep" customClass="LeaderboardTVC" customModule="Kahoot__" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="2fy-K9-Wzr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeaderboardCell" id="Gcu-fe-ht1" customClass="LeaderboardCell" customModule="Kahoot__" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gcu-fe-ht1" id="b6i-Yf-r95">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVn-0m-Npg">
+                                            <rect key="frame" x="20" y="11" width="61" height="21.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TU8-Jm-elf">
+                                            <rect key="frame" x="356.5" y="11" width="37.5" height="21.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="TU8-Jm-elf" firstAttribute="trailing" secondItem="b6i-Yf-r95" secondAttribute="trailingMargin" id="DIJ-6C-we3"/>
+                                        <constraint firstItem="TU8-Jm-elf" firstAttribute="top" secondItem="b6i-Yf-r95" secondAttribute="topMargin" id="Ogs-yL-iIn"/>
+                                        <constraint firstItem="gVn-0m-Npg" firstAttribute="top" secondItem="b6i-Yf-r95" secondAttribute="topMargin" id="dxt-a3-eyU"/>
+                                        <constraint firstItem="gVn-0m-Npg" firstAttribute="leading" secondItem="b6i-Yf-r95" secondAttribute="leadingMargin" id="eRX-Sw-U9a"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="gVn-0m-Npg" secondAttribute="bottom" id="j3h-ti-OPh"/>
+                                        <constraint firstItem="TU8-Jm-elf" firstAttribute="bottom" secondItem="b6i-Yf-r95" secondAttribute="bottomMargin" id="lHK-MA-QtG"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="leadingLabel" destination="gVn-0m-Npg" id="9Iq-AQ-tFp"/>
+                                    <outlet property="trailingLabel" destination="TU8-Jm-elf" id="65S-Eb-2zE"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1ze-A1-Gep" id="9h2-pC-z4Y"/>
+                            <outlet property="delegate" destination="1ze-A1-Gep" id="pjc-8r-UZW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Scoreboard" id="vbT-NW-v6l"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QnO-Ob-PLJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3384" y="84"/>
         </scene>
     </scenes>
     <resources>

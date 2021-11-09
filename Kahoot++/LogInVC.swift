@@ -10,6 +10,8 @@ import Firebase
 import CryptoKit
 import AuthenticationServices
 
+var isStudent = true
+
 class LogInVC: UIViewController {
     
     fileprivate var currentNonce: String?
@@ -48,8 +50,10 @@ class LogInVC: UIViewController {
     @IBAction func segmentedControlChanged(_ sender: Any) {
         if segmentedControl.selectedSegmentIndex == 0 {
             mainTitle.text = "Log in as a Student to Join Classes"
+            isStudent = true
         } else {
             mainTitle.text = "Log in as a Teacher to Create Content"
+            isStudent = false
         }
     }
     
@@ -192,7 +196,7 @@ extension LogInVC: ASAuthorizationControllerDelegate {
                     }
                 }
                 //Go to next VC
-                self.navigationController?.popViewController(animated: true)
+                self.performSegue(withIdentifier: "signInToMainSegue", sender: self)
             }
         }
     }
