@@ -52,7 +52,7 @@ class SubjectTVC: UITableViewController {
         } else if selectedOption == viewScoreboardOption {
             performSegue(withIdentifier: "scoreboardSegue", sender: self)
         } else {
-            
+            performSegue(withIdentifier: "materialsSegue", sender: self)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

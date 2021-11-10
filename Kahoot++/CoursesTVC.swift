@@ -14,7 +14,8 @@ struct CoursesStruct {
 
 var courses = [
     CoursesStruct(name: "Math 251", instructor: "Bob Marley"),
-    CoursesStruct(name: "Writing 221", instructor: "Yogurt Sauce")
+    CoursesStruct(name: "Writing 121", instructor: "Yogurt Sauce"),
+    CoursesStruct(name: "Engineering 102", instructor: "Dr. Jennifer Parham-Mocello")
 ]
 
 var selectedCourseIndex: Int!
@@ -42,6 +43,10 @@ class CoursesTVC: UITableViewController {
         selectedCourseIndex = indexPath.row
         performSegue(withIdentifier: "materialSegue", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    @IBAction func signOutButton(_ sender: Any) {
+        performSegue(withIdentifier: "toSignInSegue", sender: self)
     }
     
 }

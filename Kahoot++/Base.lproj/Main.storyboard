@@ -106,6 +106,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NkS-kD-1mz" secondAttribute="trailing" constant="50" id="zyw-wp-ZCN"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="0OD-Jz-dJu"/>
                     <connections>
                         <outlet property="SIWABackground" destination="NkS-kD-1mz" id="LiV-nj-Dqa"/>
                         <outlet property="SIWAButton" destination="GtO-FT-RQk" id="cMS-uV-Dal"/>
@@ -113,7 +114,7 @@
                         <outlet property="SIWALogo" destination="rkL-gb-QB6" id="Mgi-Uo-ZHA"/>
                         <outlet property="mainTitle" destination="t2V-YJ-6Of" id="kLG-rS-6PQ"/>
                         <outlet property="segmentedControl" destination="noF-T5-BIg" id="XCW-zL-5bB"/>
-                        <segue destination="HoO-tg-Zbn" kind="presentation" identifier="signInToMainSegue" modalPresentationStyle="fullScreen" id="bgE-7z-ydy"/>
+                        <segue destination="HoO-tg-Zbn" kind="presentation" identifier="signInToMainSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="bgE-7z-ydy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -185,9 +186,18 @@
                             <outlet property="delegate" destination="gQW-3Q-60g" id="QoY-Lz-fRd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select a Course" id="Dxu-5d-jT5"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Select a Course" id="Dxu-5d-jT5">
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="4ip-CS-9cY">
+                            <connections>
+                                <action selector="signOutButton:" destination="gQW-3Q-60g" id="Rf9-yF-zA5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="PjR-bs-V3d" kind="show" identifier="materialSegue" id="zda-c4-HUI"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toSignInSegue" modalPresentationStyle="fullScreen" id="Z9V-zZ-FLu"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CD1-IW-IlF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -247,6 +257,7 @@
                     <navigationItem key="navigationItem" title="Course Title" id="Bq2-2a-DfS"/>
                     <connections>
                         <segue destination="1ze-A1-Gep" kind="show" identifier="scoreboardSegue" id="tdD-V1-Be4"/>
+                        <segue destination="3TK-4R-MTZ" kind="show" identifier="materialsSegue" id="Fdx-1i-OM7"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="syx-7G-GpU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -257,7 +268,7 @@
         <scene sceneID="7Nj-NM-ptW">
             <objects>
                 <tableViewController id="1ze-A1-Gep" customClass="LeaderboardTVC" customModule="Kahoot__" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="2fy-K9-Wzr">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="2fy-K9-Wzr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -308,9 +319,112 @@
             </objects>
             <point key="canvasLocation" x="3384" y="84"/>
         </scene>
+        <!--Materials-->
+        <scene sceneID="XkY-J8-YTI">
+            <objects>
+                <tableViewController id="3TK-4R-MTZ" customClass="MaterialsTVC" customModule="Kahoot__" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="XBg-Ay-ipz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MaterialCell" rowHeight="114" id="u02-dR-2O3" customClass="MaterialCell" customModule="Kahoot__" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="114"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u02-dR-2O3" id="tJW-f1-5kt">
+                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="114"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lesson Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sY1-Xf-Tr4">
+                                            <rect key="frame" x="20" y="11" width="356.5" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="pPP-bC-Mlj"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0P-Qd-Lqa">
+                                            <rect key="frame" x="20" y="46" width="356.5" height="48"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="sY1-Xf-Tr4" firstAttribute="trailing" secondItem="tJW-f1-5kt" secondAttribute="trailingMargin" id="2ru-PP-Xa7"/>
+                                        <constraint firstAttribute="bottom" secondItem="f0P-Qd-Lqa" secondAttribute="bottom" constant="20" id="Bxy-gd-93r"/>
+                                        <constraint firstItem="f0P-Qd-Lqa" firstAttribute="leading" secondItem="tJW-f1-5kt" secondAttribute="leadingMargin" id="ITv-MQ-ReM"/>
+                                        <constraint firstItem="sY1-Xf-Tr4" firstAttribute="leading" secondItem="tJW-f1-5kt" secondAttribute="leadingMargin" id="S5d-5m-6v4"/>
+                                        <constraint firstItem="f0P-Qd-Lqa" firstAttribute="trailing" secondItem="tJW-f1-5kt" secondAttribute="trailingMargin" id="aX0-ND-7si"/>
+                                        <constraint firstItem="sY1-Xf-Tr4" firstAttribute="top" secondItem="tJW-f1-5kt" secondAttribute="topMargin" id="c5M-dK-RTH"/>
+                                        <constraint firstItem="f0P-Qd-Lqa" firstAttribute="top" secondItem="sY1-Xf-Tr4" secondAttribute="bottom" constant="5" id="vte-g6-MRf"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contentLabel" destination="f0P-Qd-Lqa" id="3gh-P3-O2z"/>
+                                    <outlet property="titleLabel" destination="sY1-Xf-Tr4" id="yGC-tc-uOP"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3TK-4R-MTZ" id="nbn-tZ-rQ8"/>
+                            <outlet property="delegate" destination="3TK-4R-MTZ" id="80I-H7-wL7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Materials" id="1cA-bU-u52">
+                        <barButtonItem key="rightBarButtonItem" title="Add" image="plus" catalog="system" id="TcI-aI-lFl"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="plusButton" destination="TcI-aI-lFl" id="mZ9-fc-8gi"/>
+                        <segue destination="2c1-kK-Oj6" kind="show" identifier="toLessonSegue" id="Xno-39-F93"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Db7-5q-d1k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3428.985507246377" y="799.55357142857144"/>
+        </scene>
+        <!--Lesson Title-->
+        <scene sceneID="Gb1-uV-bP3">
+            <objects>
+                <viewController id="2c1-kK-Oj6" customClass="LessonVC" customModule="Kahoot__" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lkk-Y6-Qlk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N8X-L5-UX3">
+                                <rect key="frame" x="20" y="140" width="374" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ofi-OW-D9A"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="N8X-L5-UX3" firstAttribute="leading" secondItem="Ofi-OW-D9A" secondAttribute="leading" constant="20" id="9Yl-SQ-OpQ"/>
+                            <constraint firstItem="Ofi-OW-D9A" firstAttribute="bottom" secondItem="N8X-L5-UX3" secondAttribute="bottom" id="Rbd-bD-VpH"/>
+                            <constraint firstItem="N8X-L5-UX3" firstAttribute="top" secondItem="Ofi-OW-D9A" secondAttribute="top" id="Yts-Oz-P4A"/>
+                            <constraint firstItem="Ofi-OW-D9A" firstAttribute="trailing" secondItem="N8X-L5-UX3" secondAttribute="trailing" constant="20" id="vqB-VJ-zz0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Lesson Title" id="VzS-S8-Zau">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="eeq-Rr-yFt"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="N8X-L5-UX3" id="L4p-yb-lbN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JD8-2Q-a5v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4369.5652173913049" y="799.55357142857144"/>
+        </scene>
     </scenes>
     <resources>
         <image name="applelogo" catalog="system" width="103" height="128"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
