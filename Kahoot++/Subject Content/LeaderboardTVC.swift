@@ -13,14 +13,16 @@ struct LeaderboardStruct {
     var score: Int
 }
 
+let exampleLeaderboard = [
+    LeaderboardStruct(id: "145345", name: "Oliver Bolliver", score: 56),
+    LeaderboardStruct(id: "567843", name: "Joe Manly", score: 201),
+    LeaderboardStruct(id: "435672", name: "Scott Johnson", score: 12),
+    LeaderboardStruct(id: "087478", name: "Kevin Rossel", score: 35)
+]
+
 class LeaderboardTVC: UITableViewController {
     
-    var allUsers = [
-        LeaderboardStruct(id: "145345", name: "Oliver Bolliver", score: 56),
-        LeaderboardStruct(id: "145345", name: "Joe Manly", score: 201),
-        LeaderboardStruct(id: "145345", name: "Scott Johnson", score: 12),
-        LeaderboardStruct(id: "145345", name: "Kevin Rossel", score: 35)
-    ]
+    var allUsers = exampleLeaderboard
     
     override func viewDidLoad() {
         super.viewDidLoad()

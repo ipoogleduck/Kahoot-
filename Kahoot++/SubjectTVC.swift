@@ -21,6 +21,10 @@ class SubjectTVC: UITableViewController {
     
     var subjectOptions: [SubjectInfoStruct] = []
     
+    var game: [QuestionStruct] = []
+    
+    var currentQuestionIndex: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = courses[selectedCourseIndex].name
@@ -29,6 +33,7 @@ class SubjectTVC: UITableViewController {
         } else {
             subjectOptions = [editQustionsOption, viewScoreboardOption, courseMaterialsOption]
         }
+        game = exampleGame
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,7 +53,8 @@ class SubjectTVC: UITableViewController {
         if selectedOption == editQustionsOption {
             
         } else if selectedOption == playGameOption {
-            
+            currentQuestionIndex = 0
+            startGame(from: self)
         } else if selectedOption == viewScoreboardOption {
             performSegue(withIdentifier: "scoreboardSegue", sender: self)
         } else {
