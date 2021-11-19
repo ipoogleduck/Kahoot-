@@ -15,9 +15,11 @@ struct LessonStruct {
 
 var lessons: [LessonStruct] = []
 
-class MaterialsTVC: UITableViewController {
+class MaterialsTVC: UITableViewController, LongTextDelegate {
     
     @IBOutlet weak var plusButton: UIBarButtonItem!
+    
+    var lastEditIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,12 +48,18 @@ class MaterialsTVC: UITableViewController {
         guard let longTextVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "LongTextVC") as? LongTextVC else {
             fatalError("Unable to Instantiate View Controller")
         }
+        longTextVC.delegate = self
+        lastEditIndex = indexPath.row
         let lesson = lessons[indexPath.row]
         longTextVC.title = lesson.title
         longTextVC.text = lesson.text
         longTextVC.isEditable = !isStudent
-        self.present(longTextVC, animated: true)
+        present(longTextVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func save(text: String) {
+        lessons[lastEditIndex].text = text
     }
     
 }

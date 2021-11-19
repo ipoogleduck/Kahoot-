@@ -51,7 +51,11 @@ class SubjectTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedOption = subjectOptions[indexPath.row]
         if selectedOption == editQustionsOption {
-            
+            guard let editQuestionsTVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "EditQuestionsTVC") as? EditQuestionsTVC else {
+                fatalError("Unable to Instantiate View Controller")
+            }
+            editQuestionsTVC.questions = game
+            present(editQuestionsTVC, animated: true)
         } else if selectedOption == playGameOption {
             currentQuestionIndex = 0
             startGame(from: self)

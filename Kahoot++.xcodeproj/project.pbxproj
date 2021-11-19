@@ -23,6 +23,7 @@
 		74D6ABE0273B21A400E0605A /* CoursesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D6ABDF273B21A400E0605A /* CoursesTVC.swift */; };
 		74D6ABE2273B258D00E0605A /* SubjectTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D6ABE1273B258D00E0605A /* SubjectTVC.swift */; };
 		74D6ABE4273B2DB800E0605A /* LeaderboardTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D6ABE3273B2DB800E0605A /* LeaderboardTVC.swift */; };
+		74EA32E5274734FB00C872EA /* BasicLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EA32E4274734FB00C872EA /* BasicLabelCell.swift */; };
 		74F0BB242739C3A100299D5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F0BB232739C3A100299D5B /* AppDelegate.swift */; };
 		74F0BB262739C3A100299D5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F0BB252739C3A100299D5B /* SceneDelegate.swift */; };
 		74F0BB282739C3A100299D5B /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F0BB272739C3A100299D5B /* LogInVC.swift */; };
@@ -48,6 +49,7 @@
 		74D6ABDF273B21A400E0605A /* CoursesTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesTVC.swift; sourceTree = "<group>"; };
 		74D6ABE1273B258D00E0605A /* SubjectTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectTVC.swift; sourceTree = "<group>"; };
 		74D6ABE3273B2DB800E0605A /* LeaderboardTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTVC.swift; sourceTree = "<group>"; };
+		74EA32E4274734FB00C872EA /* BasicLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicLabelCell.swift; sourceTree = "<group>"; };
 		74F0BB202739C3A100299D5B /* Kahoot++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kahoot++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F0BB232739C3A100299D5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74F0BB252739C3A100299D5B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				74F0BB272739C3A100299D5B /* LogInVC.swift */,
 				74D6ABDF273B21A400E0605A /* CoursesTVC.swift */,
 				74D6ABE1273B258D00E0605A /* SubjectTVC.swift */,
+				74EA32E4274734FB00C872EA /* BasicLabelCell.swift */,
 				74D6ABE5273B44B000E0605A /* Subject Content */,
 				74A3CC5127448A9500DE4172 /* Game */,
 				74F0BB292739C3A100299D5B /* Main.storyboard */,
@@ -303,6 +306,7 @@
 				748C336927471A7900B15072 /* EditQuestionsTVC.swift in Sources */,
 				748C336B27471A8600B15072 /* DetailQuestionsTVC.swift in Sources */,
 				74F0BB262739C3A100299D5B /* SceneDelegate.swift in Sources */,
+				74EA32E5274734FB00C872EA /* BasicLabelCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

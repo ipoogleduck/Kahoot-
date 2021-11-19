@@ -12,6 +12,17 @@ enum QuestionType: Codable {
     case textAnswer
     case multipleChoice
     case trueFalse
+    
+    func displayName() -> String {
+        switch self {
+        case .textAnswer:
+            return "Text Answer"
+        case .multipleChoice:
+            return "Multiple Choice"
+        case .trueFalse:
+            return "True or False"
+        }
+    }
 }
 
 struct MultipleChoice: Codable {

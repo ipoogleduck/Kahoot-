@@ -11,6 +11,7 @@ class LongTextVC: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
     
+    var delegate: LongTextDelegate?
     var text: String!
     var isEditable: Bool!
     
