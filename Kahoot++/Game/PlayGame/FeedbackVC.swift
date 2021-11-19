@@ -26,9 +26,11 @@ class FeedbackVC: UIViewController {
         if correct {
             view.backgroundColor = UIColor(named: "DarkGreen")
             mainLabel.text = "Correct!"
+            mainImage.image = UIImage(systemName: "checkmark.circle")
         } else {
             view.backgroundColor = .red
             mainLabel.text = "Nope, wrong"
+            mainImage.image = UIImage(systemName: "xmark.circle")
         }
         let sorted = leaderboard.sorted(by: {$0.score > $1.score}) //Sorts by highest score
         if let index = sorted.firstIndex(where: {$0.id == id}) {
