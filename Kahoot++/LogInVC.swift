@@ -28,6 +28,8 @@ class LogInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         SIWABackground.layer.cornerRadius = 7
+        segmentedControl.selectedSegmentIndex = isStudent ? 0 : 1
+        segmentedControlChanged(self)
     }
     
     @objc func signInWithAppleButtonTapped() {

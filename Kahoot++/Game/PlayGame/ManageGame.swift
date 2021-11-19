@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum QuestionType: Codable {
+enum QuestionType: Codable, CaseIterable {
     case textAnswer
     case multipleChoice
     case trueFalse
@@ -39,22 +39,16 @@ struct QuestionStruct: Codable {
     var points: Int
 }
 
-let exampleGame = [
-    QuestionStruct(question: "Is 2+2 equal to 4?", type: .trueFalse, trueOrFalse: true, points: 10),
-    QuestionStruct(question: "Ariel was playing basketball. 1 of her shots went in the hoop. 2 of her shots did not go in the hoop. How many shots were there in total?", type: .multipleChoice, multipleChoice: [MultipleChoice(answer: "2", correct: false), MultipleChoice(answer: "7", correct: false), MultipleChoice(answer: "6383", correct: false), MultipleChoice(answer: "3", correct: true)], points: 15),
-    QuestionStruct(question: "Last hockey season, Jack scored g goals. Patrik scored twice as many goals than Jack. Write an expression that shows how many goals Patrik scored using f(x).", type: .textAnswer, textAnswer: ["f(x) = 2g", "f(x)=2g", "f(x)= 2g", "f(x) =2g"], points: 20),
-]
-
 extension SubjectTVC: GameDelegate {
 
     func startGame(from viewController: UIViewController) {
-        game.shuffle()
+        course.questions.shuffle()
         continueGame(from: viewController)
     }
 
     func continueGame(from viewController: UIViewController) {
-        if currentQuestionIndex < game.count {
-            let currentQuestion = game[currentQuestionIndex]
+        if currentQuestionIndex < course.questions.count {
+            let currentQuestion = course.questions[currentQuestionIndex]
             
             if currentQuestion.type == .textAnswer {
                 guard let textAnswerVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "TextAnswerVC") as? TextAnswerVC else {
@@ -89,7 +83,7 @@ extension SubjectTVC: GameDelegate {
     }
     
     func showFeedback(from viewController: UIViewController, correct: Bool) {
-        let currentQuestion = game[currentQuestionIndex]
+        let currentQuestion = course.questions[currentQuestionIndex]
         
         guard let FeedbackVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "FeedbackVC") as? FeedbackVC else {
             fatalError("Unable to Instantiate View Controller")

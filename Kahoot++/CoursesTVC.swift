@@ -10,21 +10,18 @@ import UIKit
 struct CoursesStruct {
     var name: String
     var instructor: String
+    var lessons: [LessonStruct]
+    var leaderboard: [LeaderboardStruct]
+    var questions: [QuestionStruct]
 }
 
-var courses = [
-    CoursesStruct(name: "Math 251", instructor: "Bob Marley"),
-    CoursesStruct(name: "Writing 121", instructor: "Yogurt Sauce"),
-    CoursesStruct(name: "Engineering 102", instructor: "Dr. Jennifer Parham-Mocello")
-]
-
-var selectedCourseIndex: Int!
-
-class CoursesTVC: UITableViewController {
+class CoursesTVC: UITableViewController, saveCourseDelegate {
+    
+    var courses: [CoursesStruct] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        courses = exampleCourses
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,13 +37,21 @@ class CoursesTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedCourseIndex = indexPath.row
-        performSegue(withIdentifier: "materialSegue", sender: self)
+        guard let subjectTVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "SubjectTVC") as? SubjectTVC else {
+            fatalError("Unable to Instantiate View Controller")
+        }
+        subjectTVC.delegate = self
+        subjectTVC.course = courses[indexPath.row]
+        navigationController?.pushViewController(subjectTVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     @IBAction func signOutButton(_ sender: Any) {
         performSegue(withIdentifier: "toSignInSegue", sender: self)
+    }
+    
+    func save(course: CoursesStruct) {
+        //Add code here
     }
     
 }

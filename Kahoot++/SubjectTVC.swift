@@ -21,19 +21,19 @@ class SubjectTVC: UITableViewController {
     
     var subjectOptions: [SubjectInfoStruct] = []
     
-    var game: [QuestionStruct] = []
+    var delegate: saveCourseDelegate?
+    var course: CoursesStruct!
     
     var currentQuestionIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = courses[selectedCourseIndex].name
+        self.title = course.name
         if isStudent {
             subjectOptions = [playGameOption, viewScoreboardOption, courseMaterialsOption]
         } else {
             subjectOptions = [editQustionsOption, viewScoreboardOption, courseMaterialsOption]
         }
-        game = exampleGame
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,19 +54,31 @@ class SubjectTVC: UITableViewController {
             guard let editQuestionsTVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "EditQuestionsTVC") as? EditQuestionsTVC else {
                 fatalError("Unable to Instantiate View Controller")
             }
-            editQuestionsTVC.questions = game
-            present(editQuestionsTVC, animated: true)
+            editQuestionsTVC.questions = course.questions
+            navigationController?.pushViewController(editQuestionsTVC, animated: true)
         } else if selectedOption == playGameOption {
             currentQuestionIndex = 0
             startGame(from: self)
         } else if selectedOption == viewScoreboardOption {
-            performSegue(withIdentifier: "scoreboardSegue", sender: self)
+            guard let leaderboardTVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "LeaderboardTVC") as? LeaderboardTVC else {
+                fatalError("Unable to Instantiate View Controller")
+            }
+            leaderboardTVC.leaderboard = course.leaderboard
+            navigationController?.pushViewController(leaderboardTVC, animated: true)
         } else {
-            performSegue(withIdentifier: "materialsSegue", sender: self)
+            guard let materialsTVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "MaterialsTVC") as? MaterialsTVC else {
+                fatalError("Unable to Instantiate View Controller")
+            }
+            materialsTVC.lessons = course.lessons
+            navigationController?.pushViewController(materialsTVC, animated: true)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+}
+
+protocol saveCourseDelegate {
+    func save(course: CoursesStruct)
 }
 
 class SubjectCell: UITableViewCell {

@@ -207,7 +207,7 @@
         <!--Course Title-->
         <scene sceneID="kc3-dg-SIt">
             <objects>
-                <tableViewController id="PjR-bs-V3d" customClass="SubjectTVC" customModule="Kahoot__" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SubjectTVC" id="PjR-bs-V3d" customClass="SubjectTVC" customModule="Kahoot__" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" estimatedRowHeight="45" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="lW6-pI-U17">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -382,7 +382,7 @@
                                     <outlet property="mainLabel" destination="wk6-Yp-gl0" id="jK9-U6-1C4"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StepperCell" rowHeight="43" id="2fo-cc-3cw" customClass="StepperCell" customModule="Kahoot__" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="StepperCell" rowHeight="43" id="2fo-cc-3cw" customClass="StepperCell" customModule="Kahoot__" customModuleProvider="target">
                                 <rect key="frame" x="20" y="117.33333396911621" width="350" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2fo-cc-3cw" id="LPZ-yC-ddv">
@@ -395,7 +395,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="l90-gg-Ho9">
+                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="l90-gg-Ho9">
                                             <rect key="frame" x="236" y="5.6666666666666679" width="94" height="32"/>
                                         </stepper>
                                     </subviews>
@@ -497,7 +497,9 @@
                             <outlet property="delegate" destination="BQA-i1-JLL" id="XAL-BW-lFa"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Valid Answers" id="ssk-No-u5e"/>
+                    <navigationItem key="navigationItem" title="Valid Answers" id="ssk-No-u5e">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="Lmo-mv-D0Q"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6qS-tC-TSD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -562,21 +564,21 @@
         <!--Scoreboard-->
         <scene sceneID="7Nj-NM-ptW">
             <objects>
-                <tableViewController id="1ze-A1-Gep" customClass="LeaderboardTVC" customModule="Kahoot__" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LeaderboardTVC" id="1ze-A1-Gep" customClass="LeaderboardTVC" customModule="Kahoot__" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="2fy-K9-Wzr">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeaderboardCell" id="Gcu-fe-ht1" customClass="LeaderboardCell" customModule="Kahoot__" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.333332061767578"/>
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gcu-fe-ht1" id="b6i-Yf-r95">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.333332061767578"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVn-0m-Npg">
-                                            <rect key="frame" x="20" y="10.999999999999998" width="61" height="21.333333333333329"/>
+                                            <rect key="frame" x="20" y="11.000000000000002" width="61" height="21.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -617,7 +619,7 @@
         <!--Materials-->
         <scene sceneID="XkY-J8-YTI">
             <objects>
-                <tableViewController id="3TK-4R-MTZ" customClass="MaterialsTVC" customModule="Kahoot__" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MaterialsTVC" id="3TK-4R-MTZ" customClass="MaterialsTVC" customModule="Kahoot__" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="XBg-Ay-ipz">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

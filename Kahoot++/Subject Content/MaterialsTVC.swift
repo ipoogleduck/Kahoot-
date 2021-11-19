@@ -7,17 +7,17 @@
 
 import UIKit
 
-struct LessonStruct {
+struct LessonStruct: Codable {
     var title: String
     var text: String
     var attachedLink: URL? = nil
 }
 
-var lessons: [LessonStruct] = []
-
 class MaterialsTVC: UITableViewController, LongTextDelegate {
     
     @IBOutlet weak var plusButton: UIBarButtonItem!
+    
+    var lessons: [LessonStruct]!
     
     var lastEditIndex: Int!
     
@@ -26,10 +26,6 @@ class MaterialsTVC: UITableViewController, LongTextDelegate {
         if isStudent {
             self.navigationItem.rightBarButtonItem = nil
         }
-        lessons = [
-            LessonStruct(title: "Implicit Differentiation", text: "Read in OpenStax: The subsection of Section 2.4 titled \"Continuity over an Interval\" from example 2.35 through Theorem 2.10, then Theorem 2.10  - Continuity of Trigonometric Functions"),
-            LessonStruct(title: "Trig and Exponential", text: "Read in OpenStax: The subsection of Section 2.4"),
-        ]
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,7 +50,7 @@ class MaterialsTVC: UITableViewController, LongTextDelegate {
         longTextVC.title = lesson.title
         longTextVC.text = lesson.text
         longTextVC.isEditable = !isStudent
-        present(longTextVC, animated: true)
+        navigationController?.pushViewController(longTextVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

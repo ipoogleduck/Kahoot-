@@ -7,9 +7,11 @@
 
 import UIKit
 
-class EditQuestionsTVC: UITableViewController {
+class EditQuestionsTVC: UITableViewController, saveQuestionDelegate {
     
     var questions: [QuestionStruct]!
+    
+    var lastSelectedQuestionIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,7 @@ class EditQuestionsTVC: UITableViewController {
         cell.titleLabel.text = question.question
         let type = question.type.displayName()
         let pointValue = question.points
-        let pointString = (pointValue == 1) ? "\(pointValue)pt":"\(pointValue)pts"
+        let pointString = (pointValue == 1) ? "\(pointValue)pt" : "\(pointValue)pts"
         cell.subTitleLabel.text = "\(type) - \(pointString)"
         return cell
     }
@@ -35,9 +37,16 @@ class EditQuestionsTVC: UITableViewController {
         guard let detailQuestionsTVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "DetailQuestionsTVC") as? DetailQuestionsTVC else {
             fatalError("Unable to Instantiate View Controller")
         }
+        detailQuestionsTVC.delegate = self
         detailQuestionsTVC.question = questions[indexPath.row]
-        present(detailQuestionsTVC, animated: true)
+        lastSelectedQuestionIndex = indexPath.row
+        navigationController?.pushViewController(detailQuestionsTVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func save(question: QuestionStruct) {
+        questions[lastSelectedQuestionIndex] = question
+        tableView.reloadData()
     }
     
 }
