@@ -15,8 +15,6 @@ struct LessonStruct {
 
 var lessons: [LessonStruct] = []
 
-var selectedLessonIndex: Int!
-
 class MaterialsTVC: UITableViewController {
     
     @IBOutlet weak var plusButton: UIBarButtonItem!
@@ -45,8 +43,14 @@ class MaterialsTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedLessonIndex = indexPath.row
-        performSegue(withIdentifier: "toLessonSegue", sender: self)
+        guard let longTextVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "LongTextVC") as? LongTextVC else {
+            fatalError("Unable to Instantiate View Controller")
+        }
+        let lesson = lessons[indexPath.row]
+        longTextVC.title = lesson.title
+        longTextVC.text = lesson.text
+        longTextVC.isEditable = !isStudent
+        self.present(longTextVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

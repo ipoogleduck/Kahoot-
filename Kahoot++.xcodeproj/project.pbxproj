@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		0F296B3D6459AA523245BB2B /* Pods_Kahoot__.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7519D44539AAB25C3518EC1 /* Pods_Kahoot__.framework */; };
 		742E3D43273B457300C19CE9 /* MaterialsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742E3D42273B457300C19CE9 /* MaterialsTVC.swift */; };
-		742E3D45273B4D2A00C19CE9 /* LessonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742E3D44273B4D2A00C19CE9 /* LessonVC.swift */; };
+		742E3D45273B4D2A00C19CE9 /* LongTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742E3D44273B4D2A00C19CE9 /* LongTextVC.swift */; };
 		748C33612744BDAC00B15072 /* ManageGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C33602744BDAC00B15072 /* ManageGame.swift */; };
 		748C33632744C70100B15072 /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C33622744C70100B15072 /* FeedbackVC.swift */; };
 		748C33652744F31200B15072 /* DoneWithGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C33642744F31200B15072 /* DoneWithGameVC.swift */; };
+		748C336927471A7900B15072 /* EditQuestionsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C336827471A7900B15072 /* EditQuestionsTVC.swift */; };
+		748C336B27471A8600B15072 /* DetailQuestionsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C336A27471A8600B15072 /* DetailQuestionsTVC.swift */; };
+		748C336D27471A9800B15072 /* ValidAnswersTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748C336C27471A9800B15072 /* ValidAnswersTVC.swift */; };
 		749CB4432739CABF00CF0D4E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 749CB4422739CABF00CF0D4E /* GoogleService-Info.plist */; };
 		74A3CC5327448AB300DE4172 /* TextAnswerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A3CC5227448AB300DE4172 /* TextAnswerVC.swift */; };
 		74A3CC5527448AC000DE4172 /* MCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A3CC5427448AC000DE4172 /* MCVC.swift */; };
@@ -30,10 +33,13 @@
 
 /* Begin PBXFileReference section */
 		742E3D42273B457300C19CE9 /* MaterialsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialsTVC.swift; sourceTree = "<group>"; };
-		742E3D44273B4D2A00C19CE9 /* LessonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonVC.swift; sourceTree = "<group>"; };
+		742E3D44273B4D2A00C19CE9 /* LongTextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongTextVC.swift; sourceTree = "<group>"; };
 		748C33602744BDAC00B15072 /* ManageGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageGame.swift; sourceTree = "<group>"; };
 		748C33622744C70100B15072 /* FeedbackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
 		748C33642744F31200B15072 /* DoneWithGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneWithGameVC.swift; sourceTree = "<group>"; };
+		748C336827471A7900B15072 /* EditQuestionsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditQuestionsTVC.swift; sourceTree = "<group>"; };
+		748C336A27471A8600B15072 /* DetailQuestionsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailQuestionsTVC.swift; sourceTree = "<group>"; };
+		748C336C27471A9800B15072 /* ValidAnswersTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidAnswersTVC.swift; sourceTree = "<group>"; };
 		749CB4422739CABF00CF0D4E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		749F046A273B107400E88C65 /* Kahoot++.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Kahoot++.entitlements"; sourceTree = "<group>"; };
 		74A3CC5227448AB300DE4172 /* TextAnswerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnswerVC.swift; sourceTree = "<group>"; };
@@ -84,7 +90,7 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		74A3CC5127448A9500DE4172 /* Game */ = {
+		748C336627471A2F00B15072 /* PlayGame */ = {
 			isa = PBXGroup;
 			children = (
 				74A3CC5227448AB300DE4172 /* TextAnswerVC.swift */,
@@ -94,6 +100,25 @@
 				748C33602744BDAC00B15072 /* ManageGame.swift */,
 				748C33642744F31200B15072 /* DoneWithGameVC.swift */,
 			);
+			path = PlayGame;
+			sourceTree = "<group>";
+		};
+		748C336727471A4500B15072 /* EditQuestions */ = {
+			isa = PBXGroup;
+			children = (
+				748C336827471A7900B15072 /* EditQuestionsTVC.swift */,
+				748C336A27471A8600B15072 /* DetailQuestionsTVC.swift */,
+				748C336C27471A9800B15072 /* ValidAnswersTVC.swift */,
+			);
+			path = EditQuestions;
+			sourceTree = "<group>";
+		};
+		74A3CC5127448A9500DE4172 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				748C336727471A4500B15072 /* EditQuestions */,
+				748C336627471A2F00B15072 /* PlayGame */,
+			);
 			path = Game;
 			sourceTree = "<group>";
 		};
@@ -102,7 +127,7 @@
 			children = (
 				74D6ABE3273B2DB800E0605A /* LeaderboardTVC.swift */,
 				742E3D42273B457300C19CE9 /* MaterialsTVC.swift */,
-				742E3D44273B4D2A00C19CE9 /* LessonVC.swift */,
+				742E3D44273B4D2A00C19CE9 /* LongTextVC.swift */,
 			);
 			path = "Subject Content";
 			sourceTree = "<group>";
@@ -268,12 +293,15 @@
 				748C33632744C70100B15072 /* FeedbackVC.swift in Sources */,
 				74D6ABE2273B258D00E0605A /* SubjectTVC.swift in Sources */,
 				742E3D43273B457300C19CE9 /* MaterialsTVC.swift in Sources */,
+				748C336D27471A9800B15072 /* ValidAnswersTVC.swift in Sources */,
 				748C33612744BDAC00B15072 /* ManageGame.swift in Sources */,
 				74D6ABE4273B2DB800E0605A /* LeaderboardTVC.swift in Sources */,
 				74F0BB242739C3A100299D5B /* AppDelegate.swift in Sources */,
 				748C33652744F31200B15072 /* DoneWithGameVC.swift in Sources */,
 				74A3CC5727448AC700DE4172 /* TFVC.swift in Sources */,
-				742E3D45273B4D2A00C19CE9 /* LessonVC.swift in Sources */,
+				742E3D45273B4D2A00C19CE9 /* LongTextVC.swift in Sources */,
+				748C336927471A7900B15072 /* EditQuestionsTVC.swift in Sources */,
+				748C336B27471A8600B15072 /* DetailQuestionsTVC.swift in Sources */,
 				74F0BB262739C3A100299D5B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

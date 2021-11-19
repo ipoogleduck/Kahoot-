@@ -7,17 +7,24 @@
 
 import UIKit
 
-class LessonVC: UIViewController {
+class LongTextVC: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
     
+    var text: String!
+    var isEditable: Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = lessons[selectedLessonIndex].title
-        textView.isEditable = !isStudent
-        if isStudent {
+        textView.text = text
+        textView.isEditable = isEditable
+        if !isEditable {
             self.navigationItem.rightBarButtonItem = nil
         }
     }
     
+}
+
+protocol LongTextDelegate {
+    func save(text: String)
 }
