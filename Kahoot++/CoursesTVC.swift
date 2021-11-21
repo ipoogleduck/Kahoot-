@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct CoursesStruct {
+struct CoursesStruct: Codable {
     var name: String
     var instructor: String
     var lessons: [LessonStruct]
@@ -18,6 +18,8 @@ struct CoursesStruct {
 class CoursesTVC: UITableViewController, saveCourseDelegate {
     
     var courses: [CoursesStruct] = []
+    
+    var lastCourseIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +44,7 @@ class CoursesTVC: UITableViewController, saveCourseDelegate {
         }
         subjectTVC.delegate = self
         subjectTVC.course = courses[indexPath.row]
+        lastCourseIndex = indexPath.row
         navigationController?.pushViewController(subjectTVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -51,7 +54,8 @@ class CoursesTVC: UITableViewController, saveCourseDelegate {
     }
     
     func save(course: CoursesStruct) {
-        //Add code here
+        courses[lastCourseIndex] = course
+        tableView.reloadData()
     }
     
 }

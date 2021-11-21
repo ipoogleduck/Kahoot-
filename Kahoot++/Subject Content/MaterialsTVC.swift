@@ -17,6 +17,7 @@ class MaterialsTVC: UITableViewController, LongTextDelegate {
     
     @IBOutlet weak var plusButton: UIBarButtonItem!
     
+    var delegate: saveMaterialDelegate?
     var lessons: [LessonStruct]!
     
     var lastEditIndex: Int!
@@ -41,6 +42,39 @@ class MaterialsTVC: UITableViewController, LongTextDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presentLongTextVC(for: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            lessons.remove(at: indexPath.row)
+            delegate?.save(lessons: lessons)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    @IBAction func newButton(_ sender: Any) {
+        let alert = UIAlertController(title: "Title your lesson", message: nil, preferredStyle: .alert)
+        alert.addTextField()
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(cancelAction)
+
+        let submitAction = UIAlertAction(title: "Add", style: .default) { [unowned alert] _ in
+            let answer = alert.textFields![0].text ?? ""
+            let lesson = LessonStruct(title: answer, text: "Add course material here")
+            self.lessons.insert(lesson, at: 0)
+            self.delegate?.save(lessons: self.lessons)
+            let indexPath = IndexPath(row: 0, section: 0)
+            self.tableView.insertRows(at: [indexPath], with: .automatic)
+            self.presentLongTextVC(for: indexPath)
+        }
+        alert.addAction(submitAction)
+        present(alert, animated: true)
+    }
+    
+    func presentLongTextVC(for indexPath: IndexPath) {
         guard let longTextVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "LongTextVC") as? LongTextVC else {
             fatalError("Unable to Instantiate View Controller")
         }
@@ -51,13 +85,18 @@ class MaterialsTVC: UITableViewController, LongTextDelegate {
         longTextVC.text = lesson.text
         longTextVC.isEditable = !isStudent
         navigationController?.pushViewController(longTextVC, animated: true)
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func save(text: String) {
         lessons[lastEditIndex].text = text
+        tableView.reloadData()
+        delegate?.save(lessons: lessons)
     }
     
+}
+
+protocol saveMaterialDelegate {
+    func save(lessons: [LessonStruct])
 }
 
 class MaterialCell: UITableViewCell {

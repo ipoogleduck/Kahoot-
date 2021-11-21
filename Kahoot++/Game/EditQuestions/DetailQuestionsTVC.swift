@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailQuestionsTVC: UITableViewController {
+class DetailQuestionsTVC: UITableViewController, LongTextDelegate {
     
     var delegate: saveQuestionDelegate?
     var question: QuestionStruct!
@@ -80,6 +80,8 @@ class DetailQuestionsTVC: UITableViewController {
                 //Set checkmark on selected type
                 if let trueOrFalse = question.trueOrFalse {
                     cell.accessoryType = ((trueOrFalse && row == 0) || (!trueOrFalse && row == 1)) ? .checkmark : .none
+                } else {
+                    cell.accessoryType = .none
                 }
                 return cell
             }
@@ -94,7 +96,17 @@ class DetailQuestionsTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.section == 1 {
+        if indexPath.section == 0 {
+            guard let longTextVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "LongTextVC") as? LongTextVC else {
+                fatalError("Unable to Instantiate View Controller")
+            }
+            longTextVC.delegate = self
+            longTextVC.title = "Edit Question"
+            longTextVC.text = question.question
+            longTextVC.isEditable = true
+            navigationController?.pushViewController(longTextVC, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
+        } else if indexPath.section == 1 {
             //Changes selected type of question
             question.type = QuestionType.allCases[indexPath.row]
             //Saves update
@@ -129,6 +141,12 @@ class DetailQuestionsTVC: UITableViewController {
     
     func saveQuestion() {
         delegate?.save(question: question)
+    }
+    
+    func save(text: String) {
+        question.question = text
+        saveQuestion()
+        tableView.reloadData()
     }
     
 }

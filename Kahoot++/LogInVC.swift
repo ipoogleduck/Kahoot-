@@ -11,6 +11,7 @@ import CryptoKit
 import AuthenticationServices
 
 var isStudent = true
+var isSignedIn = false
 var id = "435672"
 
 class LogInVC: UIViewController {

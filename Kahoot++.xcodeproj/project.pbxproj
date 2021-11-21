@@ -131,7 +131,6 @@
 			children = (
 				74D6ABE3273B2DB800E0605A /* LeaderboardTVC.swift */,
 				742E3D42273B457300C19CE9 /* MaterialsTVC.swift */,
-				742E3D44273B4D2A00C19CE9 /* LongTextVC.swift */,
 			);
 			path = "Subject Content";
 			sourceTree = "<group>";
@@ -165,6 +164,7 @@
 				74D6ABDF273B21A400E0605A /* CoursesTVC.swift */,
 				74D6ABE1273B258D00E0605A /* SubjectTVC.swift */,
 				74EA32E4274734FB00C872EA /* BasicLabelCell.swift */,
+				742E3D44273B4D2A00C19CE9 /* LongTextVC.swift */,
 				74D6ABE5273B44B000E0605A /* Subject Content */,
 				74A3CC5127448A9500DE4172 /* Game */,
 				74F0BB292739C3A100299D5B /* Main.storyboard */,

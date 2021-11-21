@@ -571,14 +571,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeaderboardCell" id="Gcu-fe-ht1" customClass="LeaderboardCell" customModule="Kahoot__" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gcu-fe-ht1" id="b6i-Yf-r95">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.333332061767578"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVn-0m-Npg">
-                                            <rect key="frame" x="20" y="11.000000000000002" width="61" height="21.666666666666671"/>
+                                            <rect key="frame" x="20" y="10.999999999999998" width="61" height="21.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -670,7 +670,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Materials" id="1cA-bU-u52">
-                        <barButtonItem key="rightBarButtonItem" title="Add" image="plus" catalog="system" id="TcI-aI-lFl"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" image="plus" catalog="system" id="TcI-aI-lFl">
+                            <connections>
+                                <action selector="newButton:" destination="3TK-4R-MTZ" id="VDM-ra-mk7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="plusButton" destination="TcI-aI-lFl" id="mZ9-fc-8gi"/>
@@ -708,9 +712,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Lesson Title" id="VzS-S8-Zau">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="eeq-Rr-yFt"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="eeq-Rr-yFt">
+                            <connections>
+                                <action selector="saveButton:" destination="2c1-kK-Oj6" id="fYj-S6-DIr"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveButton" destination="eeq-Rr-yFt" id="4yR-N7-2qL"/>
                         <outlet property="textView" destination="N8X-L5-UX3" id="ULJ-KQ-eYP"/>
                     </connections>
                 </viewController>

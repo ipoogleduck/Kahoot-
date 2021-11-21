@@ -12,7 +12,7 @@ struct SubjectInfoStruct: Equatable {
     var icon: UIImage?
 }
 
-class SubjectTVC: UITableViewController {
+class SubjectTVC: UITableViewController, saveMaterialDelegate, saveQuestionsDelegate {
     
     let editQustionsOption = SubjectInfoStruct(name: "Edit Questions", icon: UIImage(systemName: "list.bullet.rectangle"))
     let playGameOption = SubjectInfoStruct(name: "Play Game", icon: UIImage(systemName: "gamecontroller"))
@@ -54,6 +54,7 @@ class SubjectTVC: UITableViewController {
             guard let editQuestionsTVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "EditQuestionsTVC") as? EditQuestionsTVC else {
                 fatalError("Unable to Instantiate View Controller")
             }
+            editQuestionsTVC.delegate = self
             editQuestionsTVC.questions = course.questions
             navigationController?.pushViewController(editQuestionsTVC, animated: true)
         } else if selectedOption == playGameOption {
@@ -69,10 +70,21 @@ class SubjectTVC: UITableViewController {
             guard let materialsTVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "MaterialsTVC") as? MaterialsTVC else {
                 fatalError("Unable to Instantiate View Controller")
             }
+            materialsTVC.delegate = self
             materialsTVC.lessons = course.lessons
             navigationController?.pushViewController(materialsTVC, animated: true)
         }
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func save(lessons: [LessonStruct]) {
+        course.lessons = lessons
+        delegate?.save(course: course)
+    }
+    
+    func save(questions: [QuestionStruct]) {
+        course.questions = questions
+        delegate?.save(course: course)
     }
     
 }

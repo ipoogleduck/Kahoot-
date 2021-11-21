@@ -9,6 +9,7 @@ import UIKit
 
 class EditQuestionsTVC: UITableViewController, saveQuestionDelegate {
     
+    var delegate: saveQuestionsDelegate?
     var questions: [QuestionStruct]!
     
     var lastSelectedQuestionIndex: Int!
@@ -44,11 +45,24 @@ class EditQuestionsTVC: UITableViewController, saveQuestionDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            questions.remove(at: indexPath.row)
+            delegate?.save(questions: questions)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     func save(question: QuestionStruct) {
         questions[lastSelectedQuestionIndex] = question
         tableView.reloadData()
+        delegate?.save(questions: questions)
     }
     
+}
+
+protocol saveQuestionsDelegate {
+    func save(questions: [QuestionStruct])
 }
 
 class QuestionCell: UITableViewCell {
