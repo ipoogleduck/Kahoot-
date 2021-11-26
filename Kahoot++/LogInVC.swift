@@ -12,7 +12,8 @@ import AuthenticationServices
 
 var isStudent = true
 var isSignedIn = false
-var id = "435672"
+var id: String?
+var name: String?
 
 class LogInVC: UIViewController {
     
@@ -185,10 +186,15 @@ extension LogInVC: ASAuthorizationControllerDelegate {
                     return
                 }
                 if let user = authResult?.user {
+                    id = user.uid
+                    UserDefaults.save(id, key: .id)
                     if let fullName = appleIDCredential.fullName {
                         if let givenName = fullName.givenName, let familyName = fullName.familyName {
                             let changeRequest = user.createProfileChangeRequest() // (3)
-                            changeRequest.displayName = "\(givenName) \(familyName)"
+                            let displayName = "\(givenName) \(familyName)"
+                            changeRequest.displayName = displayName
+                            name = displayName
+                            UserDefaults.save(name, key: .name)
                             changeRequest.commitChanges(completion: { error in
                                 if let error = error {
                                     print("Error with commiting user account name update: \(error)")
@@ -199,6 +205,13 @@ extension LogInVC: ASAuthorizationControllerDelegate {
                         }
                     }
                 }
+                //Set data
+                isSignedIn = true
+                
+                //Save data
+                UserDefaults.save(isSignedIn, key: .isSignedIn)
+                UserDefaults.save(isStudent, key: .isStudent)
+                
                 //Go to next VC
                 self.performSegue(withIdentifier: "signInToMainSegue", sender: self)
             }

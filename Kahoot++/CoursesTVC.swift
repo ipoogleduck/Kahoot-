@@ -23,7 +23,11 @@ class CoursesTVC: UITableViewController, saveCourseDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        courses = exampleCourses
+        if let savedCourses = SaveCourses.get() {
+            courses = savedCourses
+        } else {
+            courses = exampleCourses
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,11 +54,22 @@ class CoursesTVC: UITableViewController, saveCourseDelegate {
     }
     
     @IBAction func signOutButton(_ sender: Any) {
+        //Set data
+        id = nil
+        name = nil
+        isSignedIn = false
+        
+        //Save data
+        UserDefaults.save(id, key: .id)
+        UserDefaults.save(name, key: .name)
+        UserDefaults.save(isSignedIn, key: .isSignedIn)
+        
         performSegue(withIdentifier: "toSignInSegue", sender: self)
     }
     
     func save(course: CoursesStruct) {
         courses[lastCourseIndex] = course
+        SaveCourses.save(courses)
         tableView.reloadData()
     }
     

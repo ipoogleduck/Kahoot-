@@ -25,6 +25,7 @@
 		74D6ABE2273B258D00E0605A /* SubjectTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D6ABE1273B258D00E0605A /* SubjectTVC.swift */; };
 		74D6ABE4273B2DB800E0605A /* LeaderboardTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D6ABE3273B2DB800E0605A /* LeaderboardTVC.swift */; };
 		74EA32E5274734FB00C872EA /* BasicLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EA32E4274734FB00C872EA /* BasicLabelCell.swift */; };
+		74EA32E7274EF70700C872EA /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EA32E6274EF70700C872EA /* UserDefaults.swift */; };
 		74F0BB242739C3A100299D5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F0BB232739C3A100299D5B /* AppDelegate.swift */; };
 		74F0BB262739C3A100299D5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F0BB252739C3A100299D5B /* SceneDelegate.swift */; };
 		74F0BB282739C3A100299D5B /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F0BB272739C3A100299D5B /* LogInVC.swift */; };
@@ -52,6 +53,7 @@
 		74D6ABE1273B258D00E0605A /* SubjectTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectTVC.swift; sourceTree = "<group>"; };
 		74D6ABE3273B2DB800E0605A /* LeaderboardTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTVC.swift; sourceTree = "<group>"; };
 		74EA32E4274734FB00C872EA /* BasicLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicLabelCell.swift; sourceTree = "<group>"; };
+		74EA32E6274EF70700C872EA /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		74F0BB202739C3A100299D5B /* Kahoot++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kahoot++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F0BB232739C3A100299D5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74F0BB252739C3A100299D5B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				749F046A273B107400E88C65 /* Kahoot++.entitlements */,
 				74F0BB232739C3A100299D5B /* AppDelegate.swift */,
 				74F0BB252739C3A100299D5B /* SceneDelegate.swift */,
+				74EA32E6274EF70700C872EA /* UserDefaults.swift */,
 				74D67F7C2747768D00244E08 /* ExampleData.swift */,
 				74F0BB272739C3A100299D5B /* LogInVC.swift */,
 				74D6ABDF273B21A400E0605A /* CoursesTVC.swift */,
@@ -308,6 +311,7 @@
 				74A3CC5727448AC700DE4172 /* TFVC.swift in Sources */,
 				742E3D45273B4D2A00C19CE9 /* LongTextVC.swift in Sources */,
 				748C336927471A7900B15072 /* EditQuestionsTVC.swift in Sources */,
+				74EA32E7274EF70700C872EA /* UserDefaults.swift in Sources */,
 				748C336B27471A8600B15072 /* DetailQuestionsTVC.swift in Sources */,
 				74F0BB262739C3A100299D5B /* SceneDelegate.swift in Sources */,
 				74EA32E5274734FB00C872EA /* BasicLabelCell.swift in Sources */,

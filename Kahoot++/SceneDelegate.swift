@@ -17,6 +17,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        isSignedIn = UserDefaults.getBool(key: .isSignedIn)
+        
+        if isSignedIn {
+            isStudent = UserDefaults.getBool(key: .isSignedIn)
+            id = UserDefaults.getString(key: .id)
+            name = UserDefaults.getString(key: .name)
+            let rootController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "mainNavController")
+            self.window?.rootViewController = rootController
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

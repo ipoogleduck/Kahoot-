@@ -46,11 +46,17 @@ class MaterialsTVC: UITableViewController, LongTextDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            lessons.remove(at: indexPath.row)
-            delegate?.save(lessons: lessons)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        if isStudent {
+            return nil
+        } else {
+            let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: { (action, view, handler) in
+                self.lessons.remove(at: indexPath.row)
+                self.delegate?.save(lessons: self.lessons)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            })
+            deleteAction.backgroundColor = .red
+            return UISwipeActionsConfiguration(actions: [deleteAction])
         }
     }
     

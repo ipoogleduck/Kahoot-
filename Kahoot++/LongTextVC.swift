@@ -37,10 +37,12 @@ class LongTextVC: UIViewController, UITextViewDelegate {
     }
     
     func updateSaveButton() {
-        if let currentText = textView.text, currentText != "" && currentText != text {
-            saveButton.isEnabled = true
-        } else {
-            saveButton.isEnabled = false
+        if !isStudent {
+            if let currentText = textView.text, currentText != "" && currentText != text {
+                saveButton.isEnabled = true
+            } else {
+                saveButton.isEnabled = false
+            }
         }
     }
     
