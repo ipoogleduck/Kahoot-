@@ -40,11 +40,11 @@ class TFVC: UIViewController {
     }
     
     @IBAction func LeftButtonView(_ sender: Any) {
-        delegate?.showFeedback(from: self, correct: !question.trueOrFalse!)
+        delegate?.showFeedback(from: self, correct: !question.trueOrFalse)
     }
     
     @IBAction func RightButtonView(_ sender: Any) {
-        delegate?.showFeedback(from: self, correct: question.trueOrFalse!)
+        delegate?.showFeedback(from: self, correct: question.trueOrFalse)
     }
     
 }

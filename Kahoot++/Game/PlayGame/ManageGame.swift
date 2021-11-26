@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import ALRT
 
 enum QuestionType: Codable, CaseIterable {
     case textAnswer
@@ -33,7 +34,7 @@ struct MultipleChoice: Codable {
 struct QuestionStruct: Codable {
     var question: String
     var type: QuestionType
-    var trueOrFalse: Bool?
+    var trueOrFalse: Bool = true
     var multipleChoice: [MultipleChoice]?
     var textAnswer: [String]?
     var points: Int
@@ -42,8 +43,12 @@ struct QuestionStruct: Codable {
 extension SubjectTVC: GameDelegate {
 
     func startGame(from viewController: UIViewController) {
-        course.questions.shuffle()
-        continueGame(from: viewController)
+        if course.questions.isEmpty {
+            ALRT.create(.alert, title: "Game Unavailable", message: "The instructor has not set any questions for this game").addOK().show()
+        } else {
+            course.questions.shuffle()
+            continueGame(from: viewController)
+        }
     }
 
     func continueGame(from viewController: UIViewController) {

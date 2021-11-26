@@ -53,6 +53,13 @@ class EditQuestionsTVC: UITableViewController, saveQuestionDelegate {
         }
     }
     
+    @IBAction func plusButton(_ sender: Any) {
+        let startQuestion = QuestionStruct(question: "Tap to add Question", type: .trueFalse, trueOrFalse: true, multipleChoice: nil, textAnswer: nil, points: 10)
+        questions.insert(startQuestion, at: 0)
+        delegate?.save(questions: questions)
+        tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+    }
+    
     func save(question: QuestionStruct) {
         questions[lastSelectedQuestionIndex] = question
         tableView.reloadData()

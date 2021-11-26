@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ALRT
 
 extension UserDefaults {
     
@@ -51,8 +52,12 @@ struct SaveCourses {
     static func get() -> [CoursesStruct]? {
         var userData: [CoursesStruct]?
         if let data = UserDefaults.standard.value(forKey: key) as? Data {
-            userData = try? PropertyListDecoder().decode([CoursesStruct].self, from: data)
-            return userData!
+            do {
+                userData = try PropertyListDecoder().decode([CoursesStruct].self, from: data)
+            } catch {
+                ALRT.create(.alert, title: "Error Getting Data", message: "Data structure has been changed, resetting save data").addOK().show()
+            }
+            return userData
         } else {
             return userData
         }

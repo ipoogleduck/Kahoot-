@@ -16,7 +16,7 @@ class DetailQuestionsTVC: UITableViewController, LongTextDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Set indexpath of currently slected option so it can be deselcted later when needed
+        //Set indexpath of currently selected option so it can be deselcted later when needed
         if let row = QuestionType.allCases.firstIndex(where: {$0 == question.type}) {
             lastSelectedTypeIndex = IndexPath(row: row, section: 1)
         }
@@ -43,6 +43,19 @@ class DetailQuestionsTVC: UITableViewController, LongTextDelegate {
             return 1
         }
     }
+    
+    //Keeping this out for now because it looks better without headers
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        if section == 0 {
+//            return "Question"
+//        } else if section == 1 {
+//            return "Question Type"
+//        } else if section == 2 {
+//            return nil
+//        } else {
+//            return "Question Points"
+//        }
+//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
@@ -78,11 +91,8 @@ class DetailQuestionsTVC: UITableViewController, LongTextDelegate {
                     cell.mainLabel.text = "False"
                 }
                 //Set checkmark on selected type
-                if let trueOrFalse = question.trueOrFalse {
-                    cell.accessoryType = ((trueOrFalse && row == 0) || (!trueOrFalse && row == 1)) ? .checkmark : .none
-                } else {
-                    cell.accessoryType = .none
-                }
+                let trueOrFalse = question.trueOrFalse
+                cell.accessoryType = ((trueOrFalse && row == 0) || (!trueOrFalse && row == 1)) ? .checkmark : .none
                 return cell
             }
         } else {
@@ -123,6 +133,21 @@ class DetailQuestionsTVC: UITableViewController, LongTextDelegate {
             tableView.reloadSections([2], with: .none)
             //Sets last selected cell
             lastSelectedTypeIndex = indexPath
+        } else if indexPath.section == 2 {
+            //Sets true or false to the selected row
+            question.trueOrFalse = indexPath.row == 0
+            //Saved update
+            saveQuestion()
+            //Gets opposite of selected row
+            let oppositeRow = indexPath.row == 0 ? 1 : 0
+            //Deselects at that row
+            if let cell = tableView.cellForRow(at: IndexPath(row: oppositeRow, section: 2)) {
+                cell.accessoryType = .none
+            }
+            //Selects at selected row
+            if let cell = tableView.cellForRow(at: indexPath) {
+                cell.accessoryType = .checkmark
+            }
         }
     }
     

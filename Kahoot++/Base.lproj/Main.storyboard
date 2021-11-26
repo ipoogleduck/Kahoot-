@@ -315,7 +315,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Edit Questions" id="gU9-wq-fxA">
-                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="4uW-7s-ons"/>
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="4uW-7s-ons">
+                            <connections>
+                                <action selector="plusButton:" destination="Rhq-rn-6kL" id="u9X-S7-xQk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="phh-L2-kSx" kind="show" id="wRJ-Tu-Y0a"/>
@@ -362,7 +366,7 @@
                                 <rect key="frame" x="20" y="74.333333969116211" width="350" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fuj-qI-Ie0" id="HgV-Ja-J2j">
-                                    <rect key="frame" x="0.0" y="0.0" width="306" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="309.33333333333331" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wk6-Yp-gl0">
@@ -1128,7 +1132,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="tdD-V1-Be4"/>
-        <segue reference="gRO-gi-gQn"/>
+        <segue reference="bgE-7z-ydy"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="applelogo" catalog="system" width="103" height="128"/>

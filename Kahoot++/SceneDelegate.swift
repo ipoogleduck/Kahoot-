@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         isSignedIn = UserDefaults.getBool(key: .isSignedIn)
         
         if isSignedIn {
-            isStudent = UserDefaults.getBool(key: .isSignedIn)
+            isStudent = UserDefaults.getBool(key: .isStudent)
             id = UserDefaults.getString(key: .id)
             name = UserDefaults.getString(key: .name)
             let rootController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "mainNavController")
