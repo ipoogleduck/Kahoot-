@@ -1084,10 +1084,10 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="View Scoreboard"/>
                                 <connections>
-                                    <segue destination="1ze-A1-Gep" kind="show" id="oFu-NR-N0C"/>
+                                    <action selector="viewLeaderboardButton:" destination="pzC-x0-8Xu" eventType="touchUpInside" id="5R0-2y-Cvb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shy-n4-XV9">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shy-n4-XV9">
                                 <rect key="frame" x="149.66666666666666" y="254.66666666666663" width="91" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Play Again"/>
@@ -1131,8 +1131,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tdD-V1-Be4"/>
-        <segue reference="bgE-7z-ydy"/>
+        <segue reference="32H-QZ-v3d"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="applelogo" catalog="system" width="103" height="128"/>

@@ -82,8 +82,12 @@ extension SubjectTVC: GameDelegate {
             }
             
         } else {
-            print("Yaya you're done")
-            viewController.performSegue(withIdentifier: "toDoneWithGameSegue", sender: self)
+            guard let doneWithGameVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "DoneWithGameVC") as? DoneWithGameVC else {
+                fatalError("Unable to Instantiate View Controller")
+            }
+            doneWithGameVC.leaderboard = course.leaderboard
+            doneWithGameVC.modalPresentationStyle = .fullScreen
+            viewController.present(doneWithGameVC, animated: true)
         }
     }
     
